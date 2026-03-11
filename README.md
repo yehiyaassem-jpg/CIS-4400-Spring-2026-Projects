@@ -20,4 +20,4 @@ https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9g
 ## Data Dictionary
 https://cuny907-my.sharepoint.com/:x:/g/personal/assem_yehiya05_login_cuny_edu/IQCg44abpEGOQKjSZQz94ba2AU2ubqQ3TMem0r32T4--HEs?e=ict8Pu&nav=MTVfezkzQTIyMjNBLTE1OEMtNDg1MC04M0U5LTMxMkUxQkIxREQ1MX0
 
-[Data Dictionary](data_dictionary.xlsx)
+[Data Dictionary](Data%20Dictionary/data_dictionary.xlsx)

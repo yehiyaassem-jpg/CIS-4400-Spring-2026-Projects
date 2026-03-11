@@ -1,0 +1,11 @@
+Dataset: Motor Vehicle Collisions – Crashes
+
+Source: NYC Open Data
+
+Link:
+https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95
+
+Description:
+This dataset contains detailed records of motor vehicle collisions reported in New York City.
+Each row represents a single crash event including information about the location,
+time, injuries, fatalities, vehicles involved, and contributing factors.

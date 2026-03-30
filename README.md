@@ -58,7 +58,7 @@ The data is then transformed and cleaned using Python and Pandas, making sure th
 The processed data is loaded into a structured data warehouse where it is organized into fact and dimension tables.
 This enables efficient querying and analysis. The final data is accessed through Tableau dashboards for visualization and reporting.
 
-![Data Architecture](architecture/DATA_ARCH.png)
+![Data Architecture](architecture/DATA_ARCH.drawio.png)
 
 ## Dimensional Modeling
 
@@ -75,7 +75,7 @@ The dimension tables provide descriptive context like:
 
 This structure allows for efficient querying and analysis across multiple dimensions such as time, location, and contributing factors.
 
-![Dimensional Model](dimensional_model/dimensional_model.png)
+![Dimensional Model](dimensional_model/dimensional_model.drawio.png)
 
 ## Data Sources
 https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95/about_data

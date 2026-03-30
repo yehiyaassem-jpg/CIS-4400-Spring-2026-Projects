@@ -80,4 +80,4 @@ This structure allows for efficient querying and analysis across multiple dimens
 ## Data Sources
 https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95/about_data
 ## Data Dictionary
-(Data Dictionary/data_dictionary.xlsx)
+[Data Dictionary](Data%20Dictionary/data_dictionary.xlsx)

@@ -82,6 +82,8 @@ This structure allows for efficient querying and analysis across multiple dimens
 Dataset: Motor Vehicle Collisions: Crashes  
 Source: NYC Open Data  
 
-[View Dataset](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95)## Data Dictionary
+[View Dataset](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95)
+
+## Data Dictionary
 
 [Data Dictionary](Data%20Dictionary/data_dictionary.xlsx)

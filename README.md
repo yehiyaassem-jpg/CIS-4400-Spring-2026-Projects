@@ -1,79 +1,79 @@
-# CIS-4400-Spring-2026-Projects
-HW#1
+# CIS-4400-Spring-2026-Projects Assem Yehiya
 
-## Problem Context
-Motor vehicle collisions are a big thing in terms of a public safety issue in the city, they result in injuries, deaths, and a lot of property damage every year. To be able to understand when and where these accidents occur and what the factors are that contribute to them is very important for improving road safety for everyone. This project takes the NYC Motor Vehicle Collisions dataset from NYC Open Data and analyzes it to identify patterns in crash occurrences, injuries, and different factors in play. By organizing the data into a structured data warehouse and  making analysis easier using visualizations, the system can help transportation analysts and city officials better see accident trends and support safety planning thats backed up by data.
+###HW#1
+
+## Problem Context 
+
+Car crashes in New york city are a huge issue, they result in injuries and deaths and damage to property all across the city. To try to improve the safety of people in the city we need to actually see and understand what factors contribute to these accidents and when and where they usually happen. This is the aim of this project. Where ill take the “NYC Motor Vehicle Collisions” dataset from NYC open data and then ill analyze it to try and see if there is any patterns, whether in crash occurrences, injuries, and other factors that may have an impact. By organizing the data into a structured data warehouse and creating visualizations of the data which will help analysts or city officials better understand the data and trends which can allow for solutions to be created.
+
 
 ## Business Requirements
 
-1. To analyze motor vehicle collision trends across NYC boroughs and time periods.
-2. see what contributing factors associated with injuries and fatalities.
-3. Give insights to support transportation safety planning.
+1. Need to identify any crash trends across New York City and in different times
+2. Look for and find any contributing factors that are correlated with injuries and deaths
+3. Give the final product to Analysts and city officials for safety planning
+
 
 ## Functional Requirements
 
-1. The system must retrieve motor vehicle collision data from the NYC Open Data source using an API or dataset download. (I dowloaded the dataset)
+1.The System must get the “motor vehicle collision” data from the nyc open data, using either a API or just downloading it as a csv
 
-2. The system must store the raw collision data in a centralized data storage environment for further processing.
+2.The system has to store the raw data in a centralized storage environment to process later 
 
-3. The system must transform and clean the data, including standardizing date formats and handling missing or duplicate values. (I will use python for this)
+3.The system has to transform and clean the data, including making dates into standard formats and filling or removing missing or duplicate values. 
 
-4. The system must load the processed data into a structured data warehouse consisting of fact and dimension tables. 
+4.The system has to then load the cleaned data into a data warehouse with facts and dimension tables
 
-5. The system must support querying and visualization of crash trends, injuries, and contributing factors through analytical tools.
+5.The system should have data able to made into visualization and also querying to see crash trends, deaths, and any factors or possible causes using analytic tools
+
 
 ## Data Requirements
 
-The project uses the NYC Motor Vehicle Collisions dataset from NYC Open Data.
-This dataset has detailed records of motor vehicle collisions reported across New York City.
+1. This project will use the “nyc motor vehicle collisions” dataset from NYC open data. This dataset has very detailed, and event level records of crashes that have been reported across the city. It’s got more than a million records and also more than 20 columns.
 
-The dataset includes over one million records and more than 20 columns, satisfying the project requirement for a large-scale, non-aggregated data. 
-Each row is a single collision event and has attributes such as date, time, location, number of injuries, fatalities, contributing factors, and vehicle types.
+2. Each row is one collision event, and the columns are attributes like, date, time, locations, number of injuries,deaths, factors, and vehicle types. 
 
-The data is sourced through a public API and can also be downloaded in CSV format for processing.
-I have created custom data dictionary to document the selected fields, including their descriptions, data types, and constraints.
+3. The data can be downloaded in a csv format or by using the API for processing. 
 
-This dataset is suitable for data warehousing because it has structured, transactional data that can be analyzed across multiple dimensions such as time, location, and contributing factors.
+4. A custom dictionary was made to document the selected fields, it lists their description, data types. And constraints. 
+
+5. This data is a good use for data warehousing because it has structured, transactional data and can also be analyzed across multiple different dimensions, such as time, locations, and factors.
+
 
 ## Information Architecture
 
-The system architecture illustrates how data flows from the NYC Open Data source to the end users.
+1. The architecture of the system shows how data flows from the actual data source or NYC open data all the way until it reaches the users in the end.
+2. The collision dataset is retrieved by downloading it in a csv format and stored both locally and in a cloud environment 
+3. The data is then cleaned and transformed before being loaded into a data warehouse
+4. The data warehouse lets us efficiently query and analyze the crash info.
+5. Finally using power bi or tableau we make visualizations that are used to better show analysts and officials insights about the information
 
-The collision dataset is retrieved using a data ingestion script and stored in a raw data storage environment.
-The data is then processed and transformed before being loaded into a data warehouse.
-The data warehouse enables efficient querying and analysis of crash information.
-Finally, visualization tools such as Power BI or Tableau are used to present the insights to analysts and decision makers.
 
 
 ![Information Architecture](architecture/info_arch.drawio.png)
 
 ## Data Architecture
 
-The data architecture defines how data is collected, processed, and stored throughout the system.
+1. The data architecture is the flow of how data is collected, processed, and stored within the system. The nyc open data API would be the data source.
 
-The NYC Open Data data is the data source, which is accessed by downloading the csv file or by using a API in python to ingest the data.
-The raw data is stored in a storage layer in CSV or cloud storage format.
-The data is then transformed and cleaned using Python and Pandas, making sure there is consistency and also removing duplicates, errors or null values.
+2. Which is then downloaded and then stored as a csv in a cloud storage format, this is then loaded into python for cleaning and processing using pandas and making sure that there are no errors or values that aren't needed.
 
-The processed data is loaded into a structured data warehouse where it is organized into fact and dimension tables.
-This enables efficient querying and analysis. The final data is accessed through Tableau dashboards for visualization and reporting.
+3. Then we take the processed data and load it into a data warehouse using dbschema for example and organize it into fact and dimension tables. This once again allows for efficiency in analysis, the final data is used in Tableau to create dashboards and visualizations.
 
 ![Data Architecture](architecture/DATA_ARCH.drawio.png)
 
 ## Dimensional Modeling
 
-GRAIN: One row = one motor vehicle collision
-The data warehouse is designed using a star schema consisting of a central fact table and multiple dimension tables.
+1. The Grains is: one row = one motor vehicle collision
+2. The data warehouse is made using a star schema with a central fact table and multiple dimension table around it.
 
-The Fact_Crash table represents individual motor vehicle collision events and includes measures such as the number of injuries and fatalities.
+3. The “Fact_crash” table consists of motor vehicle collision events and has measures like the number of injuries or deaths.
 
-The dimension tables provide descriptive context like:
-- Dim_Date captures times and date related attributes of the crash 
-- Dim_Location includes geographic details
-- Dim_Vehicle describes vehicle types involved
-- Dim_Contributing_Factor identifies causes of collisions
-
-This structure allows for efficient querying and analysis across multiple dimensions such as time, location, and contributing factors.
+4. The dimensions tables include:
+-Dim_date, which captures time related attributes of the crash
+-Dim_location, has geographic details
+-Dim_vehicle, describes car types involved
+-Dim_contributing_factor: gives causes of collisions
 
 ![Dimensional Model](dimensional_model/dimensional_model.drawio.png)
 

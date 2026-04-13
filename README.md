@@ -58,7 +58,7 @@ Car crashes in New york city are a huge issue, they result in injuries and death
 
 2. Which is then downloaded and then stored as a csv in a cloud storage format, this is then loaded into python for cleaning and processing using pandas and making sure that there are no errors or values that aren't needed.
 
-3. Then we take the processed data and load it into a data warehouse using dbschema for example and organize it into fact and dimension tables. This once again allows for efficiency in analysis, the final data is used in Tableau to create dashboards and visualizations.
+3. Then we take the processed data and load it into a data warehouse using dbschema for example and organize it into fact and dimension tables. This once again allows better efficiency when analyzing, the final data is used in Tableau to create dashboards and visualizations.
 
 ![Data Architecture](architecture/DATA_ARCH.drawio.png)
 

@@ -64,7 +64,7 @@ Car crashes in New york city are a huge issue, they result in injuries and death
 
 ## Dimensional Modeling
 
-1. The Grains is: one row = one motor vehicle collision
+1. The Grain of the fact table is: one row per motor vehicle collision
 2. The data warehouse is made using a star schema with a central fact table and multiple dimension table around it.
 
 3. The “Fact_crash” table consists of motor vehicle collision events and has measures like the number of injuries or deaths.
@@ -74,6 +74,13 @@ Car crashes in New york city are a huge issue, they result in injuries and death
 -Dim_location, has geographic details
 -Dim_vehicle, describes car types involved
 -Dim_contributing_factor: gives causes of collisions
+
+The relationships Include:
+DIM_DATE = One Date to many crashes
+DIM_LOCATION One location to many crash records
+DIM_VEHICLE = One vehicle type occuring in many records
+DIM_CONTRITBUTING_FACTOR = One Contributing Factor associated with many collisons
+
 
 ![Dimensional Model](dimensional_model/dimensional_model.drawio.png)
 

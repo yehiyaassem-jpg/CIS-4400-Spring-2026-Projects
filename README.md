@@ -42,34 +42,35 @@ Car crashes in New york city are a huge issue, they result in injuries and death
 
 ## Information Architecture
 
-1. The architecture of the system shows how data flows from the actual data source or NYC open data all the way until it reaches the users in the end.
-2. The collision dataset is retrieved by downloading it in a csv format and stored both locally and in a cloud environment 
-3. The data is then cleaned and transformed before being loaded into a data warehouse
-4. The data warehouse lets us efficiently query and analyze the crash info.
-5. Finally using power bi or tableau we make visualizations that are used to better show analysts and officials insights about the information
+1. Data is gathered from an external data source
+2. The data enters the data ingestion layer, where it is taken for processing
+3. The raw Data is then stored in a storgae layer so that the original source data is perserved
+4. The dta then moves into the processing layer, where it will be cleaned, standerdized, and prepped for analysis
+5. The processed data is then loaded into a data warehouse, where it is organaized into fact and dimension tables
+6. The visualization and reporting layer presents the info in a usable format
+7. Business users, like analysts and city officals access the reports and dashboards to see trends, injuires, deaths, and factors that contributed.
 
 
-
-![Information Architecture](architecture/info_arch.drawio.png)
+![Information Architecture](architecture/INFO_ARCH.png)
 
 ## Data Architecture
 
-1. The data architecture is the flow of how data is collected, processed, and stored within the system. The nyc open data API would be the data source.
-
-2. Which is then downloaded and then stored as a csv in a cloud storage format, this is then loaded into python for cleaning and processing using pandas and making sure that there are no errors or values that aren't needed.
-
-3. Then we take the processed data and load it into a data warehouse using dbschema for example and organize it into fact and dimension tables. This once again allows better efficiency when analyzing, the final data is used in Tableau to create dashboards and visualizations.
+1. The data architecture is the flow of how data is collected, processed, and stored within the project.
+2.  The Data ingestion layerr gets the data from thje source
+3. The data is first stored in a temp raw storage layer which is (bronze), which holds onto the original data
+4. the data is then cleaned and standardized and transfromed into a processed sotrage layer (SILVER)
+5. After transfromation the structured data is loaded into the enterprise data warehouse (GOLD)
+6. The Data warehouse supports downstream analytics, reporting, and visulization 
 
 ![Data Architecture](architecture/DATA_ARCH.drawio.png)
 
 ## Dimensional Modeling
+The Grain of the fact table is: one row per motor vehicle collision
 
-1. The Grain of the fact table is: one row per motor vehicle collision
-2. The data warehouse is made using a star schema with a central fact table and multiple dimension table around it.
+The “Fact_crash” table consists of motor vehicle collision events and has measures like the number of injuries or deaths.
+The Data warehouse uses a star shcema with a central fact table and multiple dimension tables
 
-3. The “Fact_crash” table consists of motor vehicle collision events and has measures like the number of injuries or deaths.
-
-4. The dimensions tables include:
+ The dimension tables include:
 -Dim_date, which captures time related attributes of the crash
 -Dim_location, has geographic details
 -Dim_vehicle, describes car types involved

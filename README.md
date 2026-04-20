@@ -62,7 +62,7 @@ Car crashes in New york city are a huge issue, they result in injuries and death
 5. After transfromation the structured data is loaded into the enterprise data warehouse (GOLD)
 6. The Data warehouse supports downstream analytics, reporting, and visulization 
 
-![Data Architecture](architecture/DATA_ARCH.drawio.png)
+![Data Architecture](architecture/DATA_ARCH.png)
 
 ## Dimensional Modeling
 The Grain of the fact table is: one row per motor vehicle collision

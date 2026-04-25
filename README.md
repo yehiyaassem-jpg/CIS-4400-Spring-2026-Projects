@@ -83,7 +83,7 @@ DIM_VEHICLE = One vehicle type occuring in many records
 DIM_CONTRITBUTING_FACTOR = One Contributing Factor associated with many collisons
 
 
-![Dimensional Model](dimensional_model/DIMENSIONAL_MODELING.png)
+![Dimensional Model](dimensional_model/dimensional_model.drawio.png)
 
 ## Data Sources
 

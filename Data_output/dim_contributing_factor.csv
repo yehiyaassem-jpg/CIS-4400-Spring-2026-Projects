@@ -1,0 +1,63 @@
+factor_key,contributing_factor_vehicle_1
+1,Aggressive Driving/Road Rage
+2,Pavement Slippery
+3,Unspecified
+4,Following Too Closely
+5,Passing Too Closely
+6,Failure to Yield Right-of-Way
+7,Unknown
+8,Driver Inexperience
+9,Passing or Lane Usage Improper
+10,Turning Improperly
+11,Unsafe Lane Changing
+12,Unsafe Speed
+13,Reaction to Uninvolved Vehicle
+14,Steering Failure
+15,Traffic Control Disregarded
+16,Other Vehicular
+17,Driver Inattention/Distraction
+18,Accelerator Defective
+19,Oversized Vehicle
+20,Pedestrian/Bicyclist/Other Pedestrian Error/Confusion
+21,Alcohol Involvement
+22,View Obstructed/Limited
+23,Illnes
+24,Lost Consciousness
+25,Brakes Defective
+26,Backing Unsafely
+27,Glare
+28,Passenger Distraction
+29,Fell Asleep
+30,Obstruction/Debris
+31,Tinted Windows
+32,Animals Action
+33,Drugs (illegal)
+34,Pavement Defective
+35,Other Lighting Defects
+36,Outside Car Distraction
+37,Driverless/Runaway Vehicle
+38,Tire Failure/Inadequate
+39,Fatigued/Drowsy
+40,Headlights Defective
+41,Failure to Keep Right
+42,Cell Phone (hands-free)
+43,Lane Marking Improper/Inadequate
+44,Vehicle Vandalism
+45,Using On Board Navigation Device
+46,Physical Disability
+47,Prescription Medication
+48,Other Electronic Device
+49,Cell Phone (hand-Held)
+50,Shoulders Defective/Improper
+51,Tow Hitch Defective
+52,Listening/Using Headphones
+53,Traffic Control Device Improper/Non-Working
+54,Texting
+55,Eating or Drinking
+56,Windshield Inadequate
+57,80
+58,Reaction to Other Uninvolved Vehicle
+59,1
+60,Drugs (Illegal)
+61,Illness
+62,Cell Phone (hand-held)

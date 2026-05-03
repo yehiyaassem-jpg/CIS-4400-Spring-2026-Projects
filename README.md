@@ -95,3 +95,174 @@ Source: NYC Open Data
 ## Data Dictionary
 
 [Data Dictionary](Data%20Dictionary/data_dictionary.xlsx)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+# HW2 : ETL and Data Warehouse Implementation
+
+## Data Sourcing
+
+For this homework, i used the same dataset from homework 1, which was NYC Motor Vehicle Collisions, Crashes from NYC open data
+
+-The Data  was sourced as a csv file and then was processed using a Python ETL script. The Dataset has event-level motor vehicle collisons records, where each row represents one crash event.
+-The Source data has crash dates, crash times, boroughs, zip codes, location details, amount of injuries/deaths, factors, and vehicle type.
+
+## Storage
+The project stores the transformed data in a organzied folder. The python process made separate files for each dimension table and the fact table.
+
+## Transformation
+
+like i said a Python script was used to clean and transform the crash dataset.
+The transformation process was:
+- Standardizing the column names
+- Splitting dates into year, quarter, month, day, and day of week
+- Removing duplicate rows
+- Filling missing text values with Unknown
+- Filling missing numeric values with 0
+- Creating surrogate keys for dimension tables
+- Creating a surrogate key for the fact table
+- Creating foreign keys between the fact table and dimension tables
+- Exporting the transformed tables as CSV files
+
+  The transformed files are stored in this way:
+  HW2/
+    Output/
+       Dim_Date.csv
+       Dim_location.csv
+       Dim_vehicle.csv
+       Dim_Contributing_factor.csv
+       Fact_crash.csv
+  
+The ETL process made these tables:
+
+-Dim_Date
+-Dim_location
+-Dim_vehicle
+-Dim_Contributing_factor
+-Fact_crash
+
+- ETL Script: `HW2/scripts/etl.py`
+- SQL Table Creation Script: `HW2/scripts/sql/create_tabels.sql`
+
+## Data Mapping
+
+-A data mapping file was made to document how source fields were transformed into the final warehouse tables.
+
+The data mapping file has:
+-Source column
+-Destination table
+-Destination column
+-Data type
+-Description
+-Transformation rule
+
+Files:
+Data Mapping File: `HW2/data_mapping/data_mapping.xlsx"
+![Data Mapping](HW2/scripts/sql/data_mapping/Data_mapping.png)
+
+##Data Warehouse Implementation
+
+-The transformed data was then loaded into Snowflake as the cloud data warehouse. i used this becuase redshift was giving me errors and wouldn't allow me to use it unless i subscribed:
+-The warehouse includes one central fact table and four dimension tables: Fact_Crash, Dim_Date, Dim_Location, Dim_Vehicle, and Dim_Contributing_Factor
+-The fact table has crash measures such as injuries and deaths. The dimension tables give some context related to date, location, vehicle type, and contributing factor.
+
+![Snowflake Row Counts](HW2/scripts/sql/data_mapping/screenshots/snowflake_row_counts.png)
+
+These counts show that the transformed fact and dimension tables were loaded into the cloud data warehouse.
+
+## RedShift issue
+
+The assignment said to use AWS Redshift as the data warehouse. I tried using Redshift, but i was basically blocked because of an AWS subscription/activation issue. A screenshot of the error will be included.
+Because i couldn't use Redshift, Snowflake was used as the cloud data warehouse while keeping the same fact and dimension table structure.
+
+![Redshift error](HW2/scripts/sql/data_mapping/screenshots/redshift_error.png)
+
+## Serving Data
+
+i used Power BI to make the dashboard.
+The dashboard includes everything that was required for visual elements:
+-Filtering tools / slicers
+-Pie chart
+-Column chart
+-Line chart
+-Heat map / matrix
+
+The Power BI dashboard was made into 4 pages to show different insights.
+
+Page 1 was a general all in one Crash Overview
+Visuals :
+-Crashes over time line chart
+-Crashes by borough column chart
+-Crashes by contributing factor pie chart
+-Borough by day-of-week heat map
+-Year slicer
+-Borough slicer
+-Contributing factor slicer
+
+![Crash overview](DashBoard_Visuals/crash_overview.png)
+
+Page 2 was used to show analysis of Injuries and deaths caused by the crashes
+Visuals:
+-Total persons injured
+-Total persons killed
+-Total pedestrian injuries
+-Total pedestrian deaths
+-Total cyclist injuries
+-Total cyclist deaths
+-Total motorist injuries
+-Total motorist deaths
+-Injuries by borough
+-Deaths by borough
+-Injury type by borough
+-Year and borough filters
+
+![Injuries & Deaths](DashBoard_Visuals/injuries_fatalities.png)
+
+Page 3 went into the factors that caused the crashes and also the kind of vehicles involved.
+Visuals:
+-Crash count by contributing factor
+-Crash share by vehicle type
+-Matrix of contributing factor by vehicle type
+-Year slicer
+-Contributing factor slicer
+
+![Factors & vehicle types](DashBoard_Visuals/factors_and_vehicle_types.png)
+
+Page 4 was kind of extra but it basically helps to see if there was any pattern to be aware of or frequency of crashes
+Visuals:
+-Crash count by month
+-Crash count by day of week
+-Month by day-of-week heat map
+
+![Time & Pattern](DashBoard_Visuals/Time_&_patterns.png)
+
+Power Bi dashboard file: [Download PBIX File](https://drive.google.com/file/d/1pH_CrB_AwYumCw4bi4-8kUILV1hzAA3j/view?usp=sharing)
+
+## Some insights that i was able to make off the dash boards include:
+1. A good amount of the borough values are Unknown in the crash records, but it still means they happened, just not where, which limits us in some location based analysis.
+2. Brooklyn and Queens have very high crash volumes compared to the other boroughs, This means that either they just have higher crash frequency or that they just report more of the crashes then the rest
+3. Unsuprisingly distracted driving is one of the leading factors that cause these crashes, and there is also some crashes that have no specific factor, which shows that not every crash has a clear cause, or at least not clearly documented
+4. When looking at the visual type visual we can see that sedans are the most common vehicle type involved in these crashes, then we got station wagons, and then SUVs that appear quite often.
+5. Also not suprisingly motorists account for the largest injury group, even higher than cyclists and pedestrians, this is because motorist are invloved in most collison records, but pedestrians and cyclist aren't as frequent cause they aren't reported as much
+6. We can also see that friday has the highest crash count in the week, that could be because people are going out before the weekend or maybe friday traffic, while sunday has the least, most likely due to the fact that alot of people are at home or just not driving
+7. When looking at the monthly crash count chart it shows that crashes kind of vary by month. Some months, especially around the middle of the year, show higher crash counts than others.
+8. I made it so we can analyze Injuries and deaths separately, because they dont't really have the same pattern, like a borough or catergory with a lot of crashes might not have as much deaths, so i made them seprate to analyze further
+
+## Note: I added a google Drive Link for my PBIX file from PowerBi, the file was too large to be uploaded into the repo, i even tried to compress it and put it in a zip file but it was still too large.
+
+
+
+
+
+Check list for deliverables:
+- Python script
+- SQL table creation script
+- data mapping excel file
+- transformed fact and dim csv files
+- snowflake row count screen shot
+- redshift error screenshot
+- google drive link for PBIX file
+- Updated readme for hw2
+
+
+

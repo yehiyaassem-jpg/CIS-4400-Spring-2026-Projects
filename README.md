@@ -1,6 +1,6 @@
 # CIS-4400-Spring-2026-Projects Assem Yehiya
 
-###HW#1
+# HW1
 
 ## Problem Context 
 
@@ -132,6 +132,15 @@ The transformation process was:
        Dim_vehicle.csv
        Dim_Contributing_factor.csv
        Fact_crash.csv
+
+  Here are said files to downlaod:
+  
+Download Dim_Date.csv:  [Download DIM_DATE File](Data_output/dim_date.csv)
+Download Dim_location.csv: [Download DIM_LOCATION File](Data_output/Dim_location.csv)
+Download Dim_vehicle.csv: [Download DIM_VEHICLE File](Data_output/dim_vehicle.csv)
+Download Dim_Contributing_factor.csv: [Download DIM_CONTRIBUTING_FACTOR File](Data_output/dim_contributing_factor.csv)
+Download Fact_crash.csv: [Download FACT_CRASH File](Data_output/Fact_Crash.csv)
+  
   
 The ETL process made these tables:
 

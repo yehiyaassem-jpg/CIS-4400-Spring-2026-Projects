@@ -64,6 +64,21 @@ Car crashes in New york city are a huge issue, they result in injuries and death
 
 ![Data Architecture](architecture/DATA_ARCH.png)
 
+
+## Azure Blob Storage
+
+i used Azure Blob Storage as the cloud storage layer for the HW. The original raw CSV file was uploaded to the `raw-data` container, and the cleaned/transformed CSV files were uploaded to the `cleaned-data` container.
+
+This shows the cloud storage step in the ETL pipeline before the data is loaded into Snowflake and then Power BI.
+
+### Azure
+
+![Azure Storage Account](HW2/scripts/Storage/Azure_Storage_Containers.png)
+
+![Raw Data Container](HW2/scripts/Storage/Azure_Raw_Data.png)
+
+![Cleaned Data Container](HW2/scripts/Storage/Azure_Cleaned_Data.png)
+
 ## Dimensional Modeling
 The Grain of the fact table is: one row per motor vehicle collision
 
